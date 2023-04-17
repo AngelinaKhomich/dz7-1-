@@ -1,10 +1,8 @@
-﻿/*Задача 34: Задайте массив заполненный случайными
- положительными трёхзначными числами. 
- Напишите программу, которая покажет количество чётных чисел в массиве.*/
+﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.*/
 /*void FillArray (int [] array)
 {
     for(int i=0; i<array.Length; i++)
-        array[i] = new Random().Next(100,1000);
+        array[i] = new Random().Next(-9,10);
 
 }
 
@@ -14,85 +12,43 @@ void PrintArray(int [] array)
         Console.Write($"{item} ");
     Console.WriteLine();
 }
-void Summ(int [] array)
+void ColNumber(int [] array)
 {
-    int sum1 = 0;
+    int i = 0;
     foreach(int item in array)
-        if(item%2==0)
-            sum1++;
-    Console.Write($"Колличество четных чисел {sum1}");
+        if(item>0)
+            i++;
+    Console.WriteLine($"Чисел больше 0 пользователь ввёл {i}");
+
 
 }
-
-int [] array = new int [10];
+Console.WriteLine($"Введите размерность массива");
+int size = Convert.ToInt32(Console.ReadLine());
+int [] array = new int [size];
 FillArray(array);
 PrintArray(array);
-Summ(array);*/
+ColNumber(array);*/
 
-/*Задача 36: Задайте одномерный массив, заполненный
- случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.*/
 
-/*void FillArray (int [] array)
-{
-    for(int i=0; i<array.Length; i++)
-        array[i] = new Random().Next(1,100);
+/*Задача НЕГАФИБОНАЧЧИ. Задайте число. Составьте массив чисел НегаФибоначчи, в том числе для отрицательных индексов.*/
 
-}
-
-void PrintArray(int [] array)
+void PrintArray(double [] array)
 {
     foreach(int item in array)
         Console.Write($"{item} ");
     Console.WriteLine();
 }
-void Summ(int [] array)
+double[] Fibon(int count)
 {
-    int sum1 = 0;
-    for(int i=1;i<array.Length;i+=2)
-        sum1 += array[i];
-    Console.Write($"Cумма элементов, стоящих на нечётных позициях {sum1}");
-
+    double[] res = new double[count];
+    res[0] = 0;
+    res[1] = 1;
+    for (int i = 2; i < res.Length; i++)
+    {
+        res[i] = res[i - 2] + res[i - 1];
+    }
+    return res;
 }
 
-int [] array = new int [10];
-FillArray(array);
-PrintArray(array);
-Summ(array);*/
-
-/*Задача 38: Задайте массив вещественных чисел. 
-Найдите разницу между максимальным и минимальным элементов массива.*/
-
-void FillArray (int [] array)
-{
-    for(int i=0; i<array.Length; i++)
-        array[i] = new Random().Next(100,1000);
-
-}
-
-void PrintArray(int [] array)
-{
-    foreach(int item in array)
-        Console.Write($"{item} ");
-    Console.WriteLine();
-}
-void Diff(int [] array)
-{
-    int min = array[0];
-    int max = array[0];
-    int diff1 = 0;
-    for(int i = 0;i<array.Length;i++)
-        if(max<array[i])
-            max = array[i];
-    for(int i = 0;i<array.Length;i++)
-        if(min>array[i])
-            min = array[i];
-    diff1 = max - min;
-Console.Write($"Разница между максимальным и минимальным элементов массива равна {diff1}");
-
-}
-
-int [] array = new int [10];
-FillArray(array);
-PrintArray(array);
-Diff(array);
-
+ Console.WriteLine("Введите номер числа фиббоначи: ");
+ PrintArray(Fibon(Convert.ToInt32(Console.ReadLine())));
