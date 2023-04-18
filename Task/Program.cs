@@ -1,54 +1,81 @@
-﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.*/
-/*void FillArray (int [] array)
+﻿/*Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.*/
+
+/*void FillArray(double[,] array)
+
 {
-    for(int i=0; i<array.Length; i++)
-        array[i] = new Random().Next(-9,10);
+    Random rand = new Random();
+    for (int i =0; i<array.GetLength(0);i++)
+        for (int j =0; j<array.GetLength(1);j++)
+            
+            array[i,j] = rand.Next(-100, 100) + rand.NextDouble();
+            
 
 }
 
-void PrintArray(int [] array)
+void PrintArray(double[,] array)
 {
-    foreach(int item in array)
-        Console.Write($"{item} ");
-    Console.WriteLine();
+    for (int i =0; i<array.GetLength(0);i++)
+        {
+        for (int j =0; j<array.GetLength(1);j++)
+            Console.Write($"{array[i,j],3}\t") ;
+        Console.WriteLine();
+        }       
 }
-void ColNumber(int [] array)
-{
-    int i = 0;
-    foreach(int item in array)
-        if(item>0)
-            i++;
-    Console.WriteLine($"Чисел больше 0 пользователь ввёл {i}");
 
 
+
+Console.WriteLine("Введите количество строк");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int cols = Convert.ToInt32(Console.ReadLine());
+double [,] array = new double [rows,cols];
+FillArray(array);
+PrintArray(array);*/
+
+/*Задача 50. Напишите программу, которая на вход принимает значение элемента в двумерном массиве, и возвращает позицию этого
+ элемента или же указание, что такого элемента нет.*/
+
+ /*void FillArray(int[,] array)
+
+{
+    
+    for (int i =0; i<array.GetLength(0);i++)
+        for (int j =0; j<array.GetLength(1);j++)
+            
+            array[i,j] = new Random().Next(0,10);
+            
+
 }
-Console.WriteLine($"Введите размерность массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int [] array = new int [size];
+
+void PrintArray(int[,] array)
+{
+    for (int i =0; i<array.GetLength(0);i++)
+        {
+        for (int j =0; j<array.GetLength(1);j++)
+            Console.Write($"{array[i,j],3}\t") ;
+        Console.WriteLine();
+        }       
+}
+void FindPosition(int[,] array,int number )
+{
+    for(int i = 0;i<array.GetLength(0); i++)
+        for(int j = 0;j<array.GetLength(0); j++)
+    if(array[i,j] == number)
+        Console.WriteLine($"{i},{j}");
+           
+  
+
+}
+
+ Console.WriteLine("Введите количество строк");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int cols = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите искомое число");
+int number = Convert.ToInt32(Console.ReadLine());
+
+int [,] array = new int [rows,cols];
 FillArray(array);
 PrintArray(array);
-ColNumber(array);*/
-
-
-/*Задача НЕГАФИБОНАЧЧИ. Задайте число. Составьте массив чисел НегаФибоначчи, в том числе для отрицательных индексов.*/
-
-void PrintArray(double [] array)
-{
-    foreach(int item in array)
-        Console.Write($"{item} ");
-    Console.WriteLine();
-}
-double[] Fibon(int count)
-{
-    double[] res = new double[count];
-    res[0] = 0;
-    res[1] = 1;
-    for (int i = 2; i < res.Length; i++)
-    {
-        res[i] = res[i - 2] + res[i - 1];
-    }
-    return res;
-}
-
- Console.WriteLine("Введите номер числа фиббоначи: ");
- PrintArray(Fibon(Convert.ToInt32(Console.ReadLine())));
+FindPosition(array,number);
+*/
